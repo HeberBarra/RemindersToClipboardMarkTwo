@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual</title>
+    <style>
+        * {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: medium;
+            font-weight: normal;
+        }
+
+        body {
+            background-color: #ffffff;
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 8em;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        h2 {
+            text-indent: 3em;
+            font-weight: 700;
+            font-size: 20pt;
+        }
+
+        p {
+            text-indent: 3em;
+            text-align: justify;
+            padding: 0 1em;
+        }
+
+        h3 {
+            text-align: center;
+            font-size: 15pt;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        pre {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        code {
+            background-color: #757a7e;
+            width: 90%;
+            border: solid #5a5858;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Manual do Usuário</h1>
+    <h2>Pré-configuração</h2>
+    <p>Para utilizar o programa são necessários todos os arquivos dentro da pasta <i>src</i>, para evitar possíveis não
+        mexa nos arquivos e pasta dentro desta pasta apenas nos arquivos JSON.</p>
+    <p>Antes de poder utilizar o programa, ele deve ser configurado utilizando, os já citados, arquivos JSON, sendo
+        esses arquivos os seguintes <i>config.json</i> e um arquivo JSON que será utilizado para armazenar os lembretes,
+        o segundo arquivo pode ter qualquer nome, possuíndo o padrão de <i>reminders.json</i></p>
+    <h3>Python 3</h3>
+    <p>Este programa foi feito e por isso de um interpretador <i>python</i> para ser executado, a versão utilizada para
+        a criação do programa foi a 3.11, mas é possível que outras versões mais antigas também funcionem com a 3.10 e a
+        3.9. Site oficial: <a href="https://www.python.org/" target="_blank">python.org</a></p>
+    <h3>config.json</h3>
+    <pre><code>
+        {
+            "language": "PT",
+            "reminders_file": "src/reminders.json",
+            "header": "Boletim de Lembretes: \nData: {} \nLembretes: "
+        }
+    </code></pre>
+    <p>Os valores permitidos para a <i>language</i> são PT e EN. O campo <i>reminders_file</i> deve conter o caminho até
+        o arquivo que será utilizado para armazenar os lembretes. O <i>header</i> é o cabeçalho do boletim de lembretes que obrigatoriamente deve conter um {} que será o local onde a data do boletim será colocada.</p>
+    <h3>reminders.json</h3>
+    <pre><code>
+        []
+    </code></pre>
+    <p>Antes do programa poder ser utilizado o arquivo de armazenamento deve ser criado e conter um par de colchetes
+        como demostrado acima</p>
+    <h2>Utilização</h2>
+    <p>O programa não possui uma GUI(<i>graphical user interface</i>) sendo necessário uma CLI(<i>command line
+            interface</i>) para usá-lo. No caso do Windows 10/11 é recomendado usar o <i>windows powershell</i> ao invés
+        do <i>cmd</i>. Em outros sistemas operacionais o terminal padrão bastará.</p>
+    <h3>CLI</h3>
+    <p>Primeiro entre na pasta do programa utilizando o commando</p>
+    <pre><code>
+        ~$ cd RemindersToClipboardMarkTwo
+    </code></pre>
+    <p>Depois utilizando o comando <i>python</i>/<i>python3</i> execute o arquivo <i>main.py</i> da pasta <i>src</i></p>
+    <pre><code>
+        ~$ python src/main.py
+    </code></pre>
+    <h3>Criando uma seção</h3>
+    <pre><code>
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 
+    </code></pre>
+    <p>Antes de criar um lembrete é necessário criar uma seção, para fazer isso selecione a opção de número 4</p>
+    <pre><code>
+        Qual a opção desejada? 
+        > 4
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0     
+        Qual é o título da seção? 
+        > 
+    </code></pre>
+    <p>Crie um nome para essa seção, pode ser qualquer um que você desejar(não coloque ponto e vírgula no final, pois o
+        mesmo será acrescentado automaticamente na exibição)</p>
+    <pre><code>
+        Qual é o título da seção? 
+        > Exemplo
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+    </code></pre>
+    <p>Resultado: </p>
+    <pre><code>
+        Opções:
+        [0] Mostrar lembretes
+        [1] Mostrar seções
+        [2] Enviar lembretes
+        [3] Criar lembrete
+        [4] Criar seção
+        [5] Apagar lembrete
+        [6] Apagar seção
+        [7] Sair do do programa
+        
+    Qual a opção desejada? 
+    > 1
+    Está correto? 
+    [0] Sim 
+    [1] Não 
+    > 0
+    Deseja ver o conteúdo de uma seção específica? 
+    [0] Sim 
+    [1] Não 
+    > 1
+    Está correto? 
+    [0] Sim 
+    [1] Não 
+    > 0
+    [0] - Exemplo
+    </code></pre>
+    <h3>Criando um lembrete</h3>
+    <p>Após uma seção ter sido criada será possível criar um lembrete e colocá-lo dentro dessa seção. Para fazer isso
+        selecione a opção 3</p>
+    <pre><code>
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 3
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Qual é a messagem do lembrete? 
+        > 
+    </code></pre>
+    <p>Agora criar a mensagem do lembrete, que pode ser qualquer texto(mais especificamente qualquer caracter UTF-8). Dica: o Whatsapp possui as seguintes opções de formatação de fonte,  *texto* para negrito, _texto_ para itálico, ~texto~ para riscado e ```texto``` para fonte monospace.</p>
+    <pre><code>
+        Qual é a messagem do lembrete? 
+        > Exemplo 1 
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Qual a data final do lembrete? 
+        > 
+    </code></pre>
+    <p>Agora coloque a última date na qual o lembrete deve ser mostrado, por exemplo se a data final for 16 de Junho de 2023 no dia 17 de Junho de 2023 o lembrete não será mostrado como se não existisse.</p>
+    <pre><code>
+        Qual a data final do lembrete? 
+        > 26/05/2023
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        [0] - YYYY/MM/DD
+        [1] - YYYY-MM-DD
+        [2] - DD/MM/YYYY
+        [3] - DD-MM-YYYY
+        [4] - DD/MM/YY
+        [5] - DD-MM-YY
+        [6] - MM/DD/YYYY
+        [7] - MM-DD-YYYY
+        [8] - MM/DD/YY
+        [9] - MM-DD-YY
+        Escolha o formato de data desejado 
+        >
+    </code></pre>
+    <p>O programa aceita apenas os formatos exibidos acima outros formatos não suportados. Y - ano, M - mês, D - dia.</p>
+    <pre><code>
+        Escolha o formato de data desejado 
+        > 2
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Título da seção: Exemplo
+        Lembretes: 
+        [0] - Exemplo
+        Em qual seção o lembrete deve ser guardado? 
+        >
+    </code></pre>
+    <p>Por último selecione a seção na qual o lembrete será guardado</p>
+    <pre><code>
+        Em qual seção o lembrete deve ser guardado? 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Título da seção: Exemplo
+        Lembretes: 
+
+        Primeira data:  2023-05-24
+        Última data:  2023-05-26
+        Mensagem:  Exemplo 1
+    </code></pre>
+    <h3>Vendo as seções criadas</h3>
+    <p>O programa permite ver todos as seções de uma vez, apenas o título e o index de cada uma e também permite mostrar todo o conteúdo de uma seção</p>
+    <pre><code>
+        Qual a opção desejada? 
+        > 1
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Deseja ver o conteúdo de uma seção específica? 
+        [0] Sim 
+        [1] Não 
+        > 
+    </code></pre>
+    <p>Opção [0] Sim</p>
+    <pre><code>
+        Deseja ver o conteúdo de uma seção específica? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        [0] - Exemplo
+        Qual o index da seção? 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Título da seção:  Exemplo
+        Lembretes: 
+
+        Id: 0
+        Primeira data:  2023-05-24
+        Última data:  2023-05-26
+        Mensagem:  Exemplo 1
+    </code></pre>
+    <p>Opção [1] Não</p>
+    <pre><code>
+        Deseja ver o conteúdo de uma seção específica? 
+        [0] Sim 
+        [1] Não 
+        > 1
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        [0] - Exemplo
+    </code></pre>
+    <h3>Vendo todos os lembretes armazenados</h3>
+    <p>A opção 0 mostrará todos os lembretes separando-os por seção, mostrando o id, primeira data, última, data e mensagem de cada um</p>
+    <pre><code>
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 0	
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Título da seção: Exemplo
+        Lembretes: 
+
+        Primeira data:  2023-05-24
+        Última data:  2023-05-26
+        Mensagem:  Exemplo 1
+    </code></pre>
+    <h3>Apagando um lembrete</h3>
+    <p>ATENÇÂO ESSA AÇÂO NÂO PODE SER DESFEITA! Para apagar um lembrete utilize a opção 5. Existe dois modos de apagamento o automático que apaga todos os lembretes que não serão mais exibidos pelo programa e o modo manual que permite o apagamento de um lembrete manualmente.</p>
+    <pre><code>
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 5
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Apagar apenas um lembrete ou todos os ultrapassados? 
+        [0] Apenas um 
+        [1] Todos os ultrapassados 
+        > 
+    </code></pre>
+    <p>Para apagar um lembrete manualmente deve-se primeiro selecionar a seção na qual o mesmo está armazenado, neste caso a seção exemplo e depois utilizar o id mostrado no terminal para indicar ao programa qual lembrete o usuário quer apagar.</p>
+    <pre><code>
+        Apagar apenas um lembrete ou todos os ultrapassados? 
+        [0] Apenas um 
+        [1] Todos os ultrapassados 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Deletamento de lembrete:
+        [0] - Exemplo
+        Qual o index da seção? 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Título da seção:  Exemplo
+        Lembretes: 
+
+        Id: 0
+        Primeira data:  2023-05-24
+        Última data:  2023-05-26
+        Mensagem:  Exemplo 1
+        Qual o id do lembrete? 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        >
+    </code></pre>
+    <p>Resultado: </p>
+    <pre><code>
+        Qual o id do lembrete? 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Título da seção: Exemplo
+        Lembretes: 
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 
+    </code></pre>
+    <h3>Apagando uma seção</h3>
+    <p>ATENÇÂO ESSA AÇÂO NÂO PODE SER DESFEITA! O programa permite apagar uma seção vazia sem confirmação adicional, mas para uma seção não vazia será necessário confirmar a ação</p>
+    <p>Seção não vazia</p>
+    <pre><code>
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 6
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        [0] - Exemplo
+        Qual o index da seção? 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Seção não está vazia. Remover forçadamente? 
+        [0] Não 
+        [1] Sim 
+        >
+    </code></pre>
+    <p>Seção vazia</p>
+    <pre><code>
+                Qual a opção desejada? 
+        > 6
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        [0] - Exemplo
+        Qual o index da seção? 
+        > 0
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+    </code></pre>
+    <p>Resultado de ambos: </p>
+    <pre><code>
+                Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 1
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Deseja ver o conteúdo de uma seção específica? 
+        [0] Sim 
+        [1] Não 
+        > 1
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada?
+    </code></pre>
+    <h3>Criação do boletim de lembtres</h3>
+    <p>A opção 2 é utilizada para criar o boletim de lembretes(como eu gosto de chamar) utilizando os lembretes guardados que estão na período certo. O boletim será  exibido em formato de texto para enviá-lo basta selecionar e copiar.</p>
+    <pre><code>
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 2
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0
+        Usar a data de hoje para criar a mensagem? 
+        [0] Sim 
+        [1] Não 
+        >
+    </code></pre>
+    <p>A data solicitada será colocada no boletim e será usada para decidir quais lembretes serão mostrados. A data de hoje é a data atual registrada no computador</p>
+    <p>Resultado: </p>
+    <pre><code>
+                Usar a data de hoje para criar a mensagem? 
+        [0] Sim 
+        [1] Não 
+        > 0	
+        Está correto? 
+        [0] Sim 
+        [1] Não 
+        > 0     
+        Boletim de Lembretes: 
+        Data: 25/05/2023 
+        Lembretes: 
+        EXEMPLO:
+
+            -> Exemplo 2
+
+            Opções:
+            [0] Mostrar lembretes
+            [1] Mostrar seções
+            [2] Enviar lembretes
+            [3] Criar lembrete
+            [4] Criar seção
+            [5] Apagar lembrete
+            [6] Apagar seção
+            [7] Sair do do programa
+                
+        Qual a opção desejada? 
+        > 
+    </code></pre>
+    <p style="text-align: center; margin-bottom: .8em;">FIM DO MANUAL</p>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+{
+    "language": "PT",
+    "reminders_file": "src/reminders.json",
+    "header": "Boletim de Lembretes: \nData: {} \nLembretes: "
+}
